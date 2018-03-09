@@ -1,0 +1,16 @@
+<language-addon>
+    <addon-name>codereader</addon-name>
+    <language-name>xul/html</language-name>
+	<depends>zul</depends>
+  
+    <component>
+        <component-name>codereader</component-name>
+        <component-class>local.example.zul.Codereader</component-class>
+        <widget-class>codereader.Codereader</widget-class>
+        <mold>
+            <mold-name>default</mold-name>
+            <mold-uri>mold/codereader.js</mold-uri>
+            <css-uri>css/codereader.css.dsp</css-uri>
+        </mold>
+    </component>
+</language-addon>

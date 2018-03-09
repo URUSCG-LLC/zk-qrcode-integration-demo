@@ -1,0 +1,24 @@
+<!-- Custom component in MVC context -->
+<zk xmlns:n="native" xmlns:w="client">
+    <window border="normal" title="My QR reader"
+    	hflex="1" style="max-width:800px;"
+    	apply="local.example.zk_integration_qr.mvc.QrIntegrationComposerCodeReader">
+    	<vlayout>
+    		<codereader id="myCodeReader"/>
+    		<listbox id="scanResultsListbox">
+    			<listhead>
+    				<listheader label="Scan time" />
+    				<listheader label="Scan value" />
+    				<listheader label="Extra value" />
+    			</listhead>
+    			<template name="model">
+    				<listitem>
+    					<listcell label="${each.scanDate}" />
+    					<listcell label="${each.value}" />
+    					<listcell label="${each.extraValue}" />
+    				</listitem>
+    			</template>
+    		</listbox>
+    	</vlayout>
+    </window>
+</zk>

@@ -1,0 +1,29 @@
+<!-- Integration with ZK MVC context -->
+<?script type="text/javascript" src="../resources/lib/instascan.min.js"?>
+<?script type="text/javascript" src="../resources/js/instascaninit.js"?>
+<zk xmlns:n="native" xmlns:w="client">
+    <window border="normal" title="My QR reader"
+    	hflex="1" style="max-width:800px;"
+    	apply="local.example.zk_integration_qr.mvc.QrIntegrationComposer">
+    	<vlayout>
+    		<div hflex="1" id="myScanner"
+    			w:onBind="loadScanner(this)">
+    			<n:video width="100%" id="preview"></n:video>
+    		</div>
+    		<listbox id="scanResultsListbox">
+    			<listhead>
+    				<listheader label="Scan time" />
+    				<listheader label="Scan value" />
+    				<listheader label="Extra value" />
+    			</listhead>
+    			<template name="model">
+    				<listitem>
+    					<listcell label="${each.scanDate}" />
+    					<listcell label="${each.value}" />
+    					<listcell label="${each.extraValue}" />
+    				</listitem>
+    			</template>
+    		</listbox>
+    	</vlayout>
+    </window>
+</zk>

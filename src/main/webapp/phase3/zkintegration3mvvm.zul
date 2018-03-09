@@ -1,0 +1,27 @@
+<!-- Integration with ZK MVVM context -->
+<?script type="text/javascript" src="../resources/lib/instascan.min.js"?>
+<?script type="text/javascript" src="../resources/js/instascaninit.js"?>
+<zk xmlns:n="native" xmlns:w="client">
+    <window border="normal" title="My QR reader"
+    	viewModel="@id('vm') @init('local.example.zk_integration_qr.mvvm.QrIntegrationViewModel')"
+    	hflex="1" style="max-width:800px;">
+    	<vlayout>
+    		<codereader onScan='@command("handleScan",scanValue=event.getScanValue())'/>
+    		<listbox model="@load(vm.myScannedEntries)" id="scanResultsListbox">
+    			<listhead>
+    				<listheader label="Scan time" />
+    				<listheader label="Scan value" />
+    				<listheader label="Extra value" />
+    			</listhead>
+    			<template name="model">
+    				<listitem>
+    					<listcell label="${each.scanDate}" />
+    					<listcell label="${each.value}" />
+    					<listcell label="${each.extraValue}" />
+    				</listitem>
+    			</template>
+    		</listbox>
+    	</vlayout>
+    </window>
+</zk>
+

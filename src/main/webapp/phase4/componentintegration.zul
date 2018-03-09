@@ -1,0 +1,6 @@
+<!-- Basic test of the custom component -->
+<zk>
+	<div>
+		<codereader onScan="Clients.log(event.getScanValue())"/>
+	</div>
+</zk>

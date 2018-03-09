@@ -1,0 +1,22 @@
+<!-- Direct reproduction of the original demo in a zul page -->
+<?script type="text/javascript" src="../resources/lib/instascan.min.js"?>
+<zk xmlns:n='native'>
+    <n:video id="preview"></n:video>
+    <script type="text/javascript">
+    setTimeout(function(){
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+     },1000);
+    </script>
+</zk>
