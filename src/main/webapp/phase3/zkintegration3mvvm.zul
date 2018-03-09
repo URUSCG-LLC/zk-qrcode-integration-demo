@@ -6,7 +6,10 @@
     	viewModel="@id('vm') @init('local.example.zk_integration_qr.mvvm.QrIntegrationViewModel')"
     	hflex="1" style="max-width:800px;">
     	<vlayout>
-    		<codereader onScan='@command("handleScan",scanValue=event.getScanValue())'/>
+    		<div hflex="1" id="myScanner" onScan='@command("handleScan",scanValue=event.getData().get("content"))'
+    			w:onBind="loadScanner(this)">
+    			<n:video width="100%" id="preview"></n:video>
+    		</div>
     		<listbox model="@load(vm.myScannedEntries)" id="scanResultsListbox">
     			<listhead>
     				<listheader label="Scan time" />
